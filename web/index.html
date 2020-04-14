@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+    <head>
+        <title>Database Management</title>
+        <script>
+                function myFunction(id) {
+                    var x = document.getElementById(id);
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+                }
+        </script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+
+    <body style="background-color: #a0a0a0">
+
+        <nav>
+            <ul>
+                    <li><a style="font-size: 24px;" href="index.html">Home</a></li>
+                    <div style="font-size: 24px;" class="center">
+                            Management System (Market)
+                    </div>
+            </ul>
+        </nav>
+        <div name = "form1" style="padding-top: 20px;">
+            <div class="formContainer">
+                <button onclick="myFunction('Insert')">Inserir</button>
+                <div id = "Insert" style="display:none">
+                    <div class = "form_group">
+                        <h1 class="formTitle">Inserir Categoria Simples</h1><br/>
+                        <form name = "insertSimpleCat" method="POST" action="addSimpleCat.php">
+                            <label>Categoria Simples: </label><br/>
+                            <input type = "text" name = "category" value = "" required/><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class = "form_group">
+                        <h1 class="formTitle">Inserir Super Categoria</h1><br/>
+                        <form name="insertSuperCat" method="POST" action="addSuperCat.php">
+                            <label>Supercategoria:</label><br/>
+                            <input type = "text" name = "categoryName" value = "" required /><br/>
+                            <label>Sub-categoria:</label><br/>
+                            <input type="text" name="simpleName" value ="" required/><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class = "form_group">
+                        <h1 class="formTitle">Inserir Produto</h1><br/>
+                        <form name="insertProduct" method="POST" action="insertProduct.php">
+                            <label>Nome Produto:</label><br/>
+                            <input type = "text" name = "design" value = "" required/><br/>
+                            <label>EAN:</label><br/>
+                            <input type="number" name="ean" value = "" required/><br/>
+                            <label>Categoria:</label><br/>
+                            <input type="text" name="categoria" value="" required/><br/>
+                            <label>Fornecedor Primário (NIF):</label><br/>
+                            <input type="number" name="forn_prim" value="" required/><br/>
+                            <label>Fornecedor Secundário (NIF):</label><br/>
+                            <input type="number" name="forn_sec" value="" required/><br/>
+
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="formContainer">
+                <button onclick="myFunction('Remove')" >Remover</button>
+                <div id="Remove" style="display:none">
+                    <div class="form_group">
+                        <h1 class="formTitle">Remover Categoria Simples</h1><br/>
+                        <form name="removeSimpleCategory" method="POST" action="removeSimpleCat.php">
+                            <label>Categoria Simples: </label><br/>
+                            <input type="text" name="cat_name" value="" required /><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class="form_group">
+                        <h1 class="formTitle">Remover Super Categoria</h1><br/>
+                        <form name = "removeSuperCategory" method="POST" action="removeSuperCat.php">
+                            <label>Supercategoria:</label><br/>
+                            <input type="text" name="cat_name" value="" required /><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class="form_group">
+                        <h1 class="formTitle">Remover Produto</h1><br/>
+                        <form name="removeProduct" method="POST" action="removeProduct.php">
+                            <label>Produto (Nome):</label><br/>
+                            <input type="text" name="nome" value="" required /><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+
+            <div class="formContainer">
+                <button onclick="myFunction('List')">Listar</button>
+                <div id="List" style="display:none">
+                    <div class="form_group">
+                        <h1 class="formTitle">Listar Eventos de Reposição</h1><br/>
+                        <form name="listEvents" method="POST" action="listEv.php">
+                            <label>Produto (Nome): </label><br/>
+                            <input type="text" name="product" value="" required /><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                    <div class="form_group">
+                        <h1 class="formTitle">Listar Sub-categorias de uma Categoria</h1><br/>
+                        <form name="listCategories" method="POST" action="listCategories.php">
+                            <label>Sub Categorias:</label><br/>
+                            <input type="text" name="cat_name" value="" required /><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+
+
+            <div class="formContainer">
+                <button onclick="myFunction('Edit')">Editar Produto</button>
+                <div id="Edit" style="display:none">
+                    <div class="form_group">
+                        <h1 class="formTitle">Mudar Nome de Produto</h1><br/>
+                        <form name="changeProductName" method="POST" action="chProductName.php">
+                            <label>Nome anterior: </label><br/>
+                            <input type="text" name="oldName" value="" required /><br/>
+                            <label>Novo nome:</label><br/>
+                            <input type="text" name="newName" value="" required /><br/>
+                            <input type="submit"><br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
